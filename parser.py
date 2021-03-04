@@ -4,6 +4,7 @@ from cassandra.auth import PlainTextAuthProvider
 from cassandra.cluster import Cluster
 import json
 import sys
+import datetime
  
 def openCassandraSessionStagingTransaction():
     auth_provider = PlainTextAuthProvider(
