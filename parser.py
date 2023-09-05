@@ -49,6 +49,11 @@ for line in sys.stdin:
 	except:
 		transTax = 0
 		
+	try:
+		currency = transaction['currency']
+	except:
+		currency = ''
+		
 	transEvent = data['event']
 	transHash = data['transactionHash']
 	transBlock = str(data['blockNumber'])
@@ -60,6 +65,8 @@ for line in sys.stdin:
 	rows = sessioStaging.execute(cqlcommand)
 	additional_fields = []
 	additional_values = []
+	
+	
 	shop_tx = False
 	for row in rows:	    
 	    # message
@@ -104,10 +111,15 @@ for line in sys.stdin:
 	if not shop_tx:
 	    additional_fields.append('wh_status')
 	    additional_values.append('0') # Not a shop transction
+	    
+	
+	if (currency!=''):
+	    additional_fields.append('currency')
+	    additional_values.append("'{}'".format(currency)) 
 
 	add_fields = ', '.join(additional_fields)
 	add_val =  ', '.join(additional_values)
-	cqlcommand = "INSERT INTO testtransactions (add1, add2, status, hash, time, receivedat, direction, recieved, sent, tax, type, block, {}) VALUES ('{}', '{}',   {},    {},  '{}',  {},        {},       {},   {},  {}, '{}',    '{}', {}) IF NOT EXISTS"
+	cqlcommand = "INSERT INTO testtransactions (add1, add2, status, hash, time, receivedAt, direction, recieved, sent, tax, type, block, {}) VALUES ('{}', '{}',     {},  '{}',  {},  {},      {},       {},   {},  {}, '{}',    '{}', {}) IF NOT EXISTS"
 	cqlcommand_1 = cqlcommand.format(add_fields, transFrom, transTo, 0, transHash, transInsertTime, transTime, 1, transRecieved, transSent, transTax, transEvent, transBlock, add_val )
 	cqlcommand_2 = cqlcommand.format(add_fields, transTo, transFrom, 0, transHash, transInsertTime, transTime, 2, transRecieved, transSent, transTax, transEvent, transBlock, add_val )
 	
