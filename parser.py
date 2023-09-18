@@ -25,6 +25,7 @@ sessioStaging = openCassandraSessionStagingTransaction()
 for line in sys.stdin:
 	if line == "true\n":
 		break
+	#print(line)	
 	data = json.loads(line)
 	transaction = data['args']
 	transTime = transaction['time']
@@ -50,7 +51,7 @@ for line in sys.stdin:
 		transTax = 0
 		
 	try:
-		currency = transaction['currency']
+		currency = data['currency']
 	except:
 		currency = ''
 		
@@ -58,13 +59,14 @@ for line in sys.stdin:
 	transHash = data['transactionHash']
 	transBlock = str(data['blockNumber'])
 	
-	print(str(transTime) + " - Added transaction " + transHash + " from block " + transBlock)
+	print(str(transTime) + " - Added transaction " + transHash + " on currency "+currency+" from block " + transBlock)
 	
 	# Check if the transaction is in the pending transaction table (webshop_transactions)
 	cqlcommand = "SELECT hash, store_id, store_ref, wh_status, delegate, message_from, message_to, toTimestamp(now()) AS stamp, receivedat FROM webshop_transactions WHERE hash='{}'".format(transHash)
 	rows = sessioStaging.execute(cqlcommand)
 	additional_fields = []
 	additional_values = []
+
 	
 	
 	shop_tx = False
@@ -119,10 +121,11 @@ for line in sys.stdin:
 
 	add_fields = ', '.join(additional_fields)
 	add_val =  ', '.join(additional_values)
+	
 	cqlcommand = "INSERT INTO testtransactions (add1, add2, status, hash, time, receivedAt, direction, recieved, sent, tax, type, block, {}) VALUES ('{}', '{}',     {},  '{}',  {},  {},      {},       {},   {},  {}, '{}',    '{}', {}) IF NOT EXISTS"
 	cqlcommand_1 = cqlcommand.format(add_fields, transFrom, transTo, 0, transHash, transInsertTime, transTime, 1, transRecieved, transSent, transTax, transEvent, transBlock, add_val )
 	cqlcommand_2 = cqlcommand.format(add_fields, transTo, transFrom, 0, transHash, transInsertTime, transTime, 2, transRecieved, transSent, transTax, transEvent, transBlock, add_val )
-	
+	#print(cqlcommand_1)
 	try:
 		session.execute(cqlcommand_1)
 	#print(cqlcommand_1)
