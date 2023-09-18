@@ -1058,6 +1058,15 @@ desc = [{
     "name": "DebugMsg",
     "type": "event"
 }]
+
+// const valid_currencies = ['Agnel','COEUR','Gemme','LaPive','Leman-EU','Lemanopolis','Lokacoin','Monnaie-Leman','Racine','Tissou'];
+
+var add_Currency = function(data, currency) {
+    data['currency']=currency;
+    return data;
+}
+
+// Monnaie-Leman
 addr = "0xB86C066396A6f21F17301E9acfec2a0Fc5c76116"
 var leman = eth.contract(desc).at(addr)
 var Transfer = leman.Transfer({}, {
@@ -1065,114 +1074,99 @@ var Transfer = leman.Transfer({}, {
     toBlock: 'LBLOCK'
 });
 Transfer.watch(function(error, result) {
-    console.log(JSON.stringify(result))
+    console.log(JSON.stringify(add_Currency(result,'Monnaie-Leman')))
 });
 var TransferCredit = leman.TransferCredit({}, {
     fromBlock: FBLOCK,
     toBlock: 'LBLOCK'
 });
 TransferCredit.watch(function(error, result) {
-    console.log(JSON.stringify(result))
+    console.log(JSON.stringify(add_Currency(result,'Monnaie-Leman')))
 });
 var Pledge = leman.Pledge({}, {
     fromBlock: FBLOCK,
     toBlock: 'LBLOCK'
 });
 Pledge.watch(function(error, result) {
-    console.log(JSON.stringify(result))
+    console.log(JSON.stringify(add_Currency(result,'Monnaie-Leman')))
 });
+
+// Lemanopolis
 addr = "0x85291865Ac4b11b086EAf901E6116eba014244cE"
-var leman = eth.contract(desc).at(addr)
-var Transfer = leman.Transfer({}, {
+var lempol = eth.contract(desc).at(addr)
+var Transfer = lempol.Transfer({}, {
     fromBlock: FBLOCK,
     toBlock: 'LBLOCK'
 });
 Transfer.watch(function(error, result) {
-    console.log(JSON.stringify(result))
+    console.log(JSON.stringify(add_Currency(result,'Lemanopolis')))
 });
-var TransferCredit = leman.TransferCredit({}, {
+var TransferCredit = lempol.TransferCredit({}, {
     fromBlock: FBLOCK,
     toBlock: 'LBLOCK'
 });
 TransferCredit.watch(function(error, result) {
-    console.log(JSON.stringify(result))
+    console.log(JSON.stringify(add_Currency(result,'Lemanopolis')))
 });
-var Pledge = leman.Pledge({}, {
+var Pledge = lempol.Pledge({}, {
     fromBlock: FBLOCK,
     toBlock: 'LBLOCK'
 });
 Pledge.watch(function(error, result) {
-    console.log(JSON.stringify(result))
+    console.log(JSON.stringify(add_Currency(result,'Lemanopolis')))
 });
+
+// COEUR
 addr = "0x45485Baa9C594D21A1B131d38Bba48bC830fD041"
-var leman = eth.contract(desc).at(addr)
-var Transfer = leman.Transfer({}, {
+var coeur = eth.contract(desc).at(addr)
+var Transfer = coeur.Transfer({}, {
     fromBlock: FBLOCK,
     toBlock: 'LBLOCK'
 });
 Transfer.watch(function(error, result) {
-    console.log(JSON.stringify(result))
+    console.log(JSON.stringify(add_Currency(result,'COEUR')))
 });
-var TransferCredit = leman.TransferCredit({}, {
+var TransferCredit = coeur.TransferCredit({}, {
     fromBlock: FBLOCK,
     toBlock: 'LBLOCK'
 });
 TransferCredit.watch(function(error, result) {
-    console.log(JSON.stringify(result))
+    console.log(JSON.stringify(add_Currency(result,'COEUR')))
 });
-var Pledge = leman.Pledge({}, {
+var Pledge = coeur.Pledge({}, {
     fromBlock: FBLOCK,
     toBlock: 'LBLOCK'
 });
 Pledge.watch(function(error, result) {
-    console.log(JSON.stringify(result))
+    console.log(JSON.stringify(add_Currency(result,'COEUR')))
 });
-addr = "0xb368e8e8548b853c8908de65aa3d4a75ae50ac7c"
-var leman = eth.contract(desc).at(addr)
-var Transfer = leman.Transfer({}, {
-    fromBlock: FBLOCK,
-    toBlock: 'LBLOCK'
-});
-Transfer.watch(function(error, result) {
-    console.log(JSON.stringify(result))
-});
-var TransferCredit = leman.TransferCredit({}, {
-    fromBlock: FBLOCK,
-    toBlock: 'LBLOCK'
-});
-TransferCredit.watch(function(error, result) {
-    console.log(JSON.stringify(result))
-});
-var Pledge = leman.Pledge({}, {
-    fromBlock: FBLOCK,
-    toBlock: 'LBLOCK'
-});
-Pledge.watch(function(error, result) {
-    console.log(JSON.stringify(result))
-});
-addr_lemeu = "0xbf0c1eab5ee44a8feca229958078b5ffd34ba87c"
-var lemaneu = eth.contract(desc).at(addr_lemeu)
-var TransferEu = lemaneu.Transfer({}, {
+
+
+addr = "0xbf0c1eab5ee44a8feca229958078b5ffd34ba87c"
+var lemeu = eth.contract(desc).at(addr)
+var TransferEu = lemeu.Transfer({}, {
 fromBlock: FBLOCK,
 toBlock: 'LBLOCK'
 });
 TransferEu.watch(function(error, result) {
 console.log(JSON.stringify(result))
 });
-var TransferCreditEu = lemaneu.TransferCredit({}, {
+var TransferCreditEu = lemeu.TransferCredit({}, {
 fromBlock: FBLOCK,
 toBlock: 'LBLOCK'
 });
 TransferCreditEu.watch(function(error, result) {
 console.log(JSON.stringify(result))
 });
-var PledgeEu = lemaneu.Pledge({}, {
+var PledgeEu = lemeu.Pledge({}, {
 fromBlock: FBLOCK,
 toBlock: 'LBLOCK'
 });
 PledgeEu.watch(function(error, result) {
 console.log(JSON.stringify(result))
 });
+
+
 
 addr_pive = "0xd6278113fd7f50dbd8b7ff78287459a9849387c8"
 var lapive = eth.contract(desc).at(addr_pive)
@@ -1297,3 +1291,4 @@ toBlock: 'LBLOCK'
 Pledgeracine.watch(function(error, result) {
 console.log(JSON.stringify(result))
 });
+
