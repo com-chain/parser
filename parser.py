@@ -2,6 +2,7 @@
 
 from cassandra.auth import PlainTextAuthProvider
 from cassandra.cluster import Cluster
+from datetime import datetime
 import json
 import sys
  
@@ -25,8 +26,12 @@ sessioStaging = openCassandraSessionStagingTransaction()
 for line in sys.stdin:
 	if line == "true\n":
 		break
-	#print(line)	
-	data = json.loads(line)
+	#print(line)
+	try:	
+	    data = json.loads(line)
+	except:
+	    raise ValueError(datetime.now()+' - Error parsing the line ' + line)
+	    continue
 	transaction = data['args']
 	transTime = transaction['time']
 	transInsertTime = transTime

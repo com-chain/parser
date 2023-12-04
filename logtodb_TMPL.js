@@ -1149,21 +1149,21 @@ fromBlock: FBLOCK,
 toBlock: 'LBLOCK'
 });
 TransferEu.watch(function(error, result) {
-console.log(JSON.stringify(result))
+console.log(JSON.stringify(add_Currency(result,'Leman-EU')))
 });
 var TransferCreditEu = lemeu.TransferCredit({}, {
 fromBlock: FBLOCK,
 toBlock: 'LBLOCK'
 });
 TransferCreditEu.watch(function(error, result) {
-console.log(JSON.stringify(result))
+console.log(JSON.stringify(add_Currency(result,'Leman-EU')))
 });
 var PledgeEu = lemeu.Pledge({}, {
 fromBlock: FBLOCK,
 toBlock: 'LBLOCK'
 });
 PledgeEu.watch(function(error, result) {
-console.log(JSON.stringify(result))
+console.log(JSON.stringify(add_Currency(result,'Leman-EU')))
 });
 
 
@@ -1175,21 +1175,21 @@ fromBlock: FBLOCK,
 toBlock: 'LBLOCK'
 });
 TransferPive.watch(function(error, result) {
-console.log(JSON.stringify(result))
+console.log(JSON.stringify(add_Currency(result,'LaPive')))
 });
 var TransferCreditPive = lapive.TransferCredit({}, {
 fromBlock: FBLOCK,
 toBlock: 'LBLOCK'
 });
 TransferCreditPive.watch(function(error, result) {
-console.log(JSON.stringify(result))
+console.log(JSON.stringify(add_Currency(result,'LaPive')))
 });
 var PledgePive = lapive.Pledge({}, {
 fromBlock: FBLOCK,
 toBlock: 'LBLOCK'
 });
 PledgePive.watch(function(error, result) {
-console.log(JSON.stringify(result))
+console.log(JSON.stringify(add_Currency(result,'LaPive')))
 });
 
 
@@ -1200,21 +1200,21 @@ fromBlock: FBLOCK,
 toBlock: 'LBLOCK'
 });
 TransferLokacoin.watch(function(error, result) {
-console.log(JSON.stringify(result))
+console.log(JSON.stringify(add_Currency(result,'Lokacoin')))
 });
 var TransferCreditLokacoin = lokacoin.TransferCredit({}, {
 fromBlock: FBLOCK,
 toBlock: 'LBLOCK'
 });
 TransferCreditLokacoin.watch(function(error, result) {
-console.log(JSON.stringify(result))
+console.log(JSON.stringify(add_Currency(result,'Lokacoin')))
 });
 var PledgeLokacoin = lokacoin.Pledge({}, {
 fromBlock: FBLOCK,
 toBlock: 'LBLOCK'
 });
 PledgeLokacoin.watch(function(error, result) {
-console.log(JSON.stringify(result))
+console.log(JSON.stringify(add_Currency(result,'Lokacoin')))
 });
 
 
@@ -1225,21 +1225,21 @@ fromBlock: FBLOCK,
 toBlock: 'LBLOCK'
 });
 Transferagnel.watch(function(error, result) {
-console.log(JSON.stringify(result))
+console.log(JSON.stringify(add_Currency(result,'Agnel')))
 });
 var TransferCreditagnel = agnel.TransferCredit({}, {
 fromBlock: FBLOCK,
 toBlock: 'LBLOCK'
 });
 TransferCreditagnel.watch(function(error, result) {
-console.log(JSON.stringify(result))
+console.log(JSON.stringify(add_Currency(result,'Agnel')))
 });
 var Pledgeagnel = agnel.Pledge({}, {
 fromBlock: FBLOCK,
 toBlock: 'LBLOCK'
 });
 Pledgeagnel.watch(function(error, result) {
-console.log(JSON.stringify(result))
+console.log(JSON.stringify(add_Currency(result,'Agnel')))
 });
 
 
@@ -1250,21 +1250,21 @@ fromBlock: FBLOCK,
 toBlock: 'LBLOCK'
 });
 Transfergemme.watch(function(error, result) {
-console.log(JSON.stringify(result))
+console.log(JSON.stringify(add_Currency(result,'Gemme')))
 });
 var TransferCreditgemme = gemme.TransferCredit({}, {
 fromBlock: FBLOCK,
 toBlock: 'LBLOCK'
 });
 TransferCreditgemme.watch(function(error, result) {
-console.log(JSON.stringify(result))
+console.log(JSON.stringify(add_Currency(result,'Gemme')))
 });
 var Pledgegemme = gemme.Pledge({}, {
 fromBlock: FBLOCK,
 toBlock: 'LBLOCK'
 });
 Pledgegemme.watch(function(error, result) {
-console.log(JSON.stringify(result))
+console.log(JSON.stringify(add_Currency(result,'Gemme')))
 });
 
 
@@ -1275,20 +1275,45 @@ fromBlock: FBLOCK,
 toBlock: 'LBLOCK'
 });
 Transferracine.watch(function(error, result) {
-console.log(JSON.stringify(result))
+console.log(JSON.stringify(add_Currency(result,'Racine')))
 });
 var TransferCreditracine = racine.TransferCredit({}, {
 fromBlock: FBLOCK,
 toBlock: 'LBLOCK'
 });
 TransferCreditracine.watch(function(error, result) {
-console.log(JSON.stringify(result))
+console.log(JSON.stringify(add_Currency(result,'Racine')))
 });
 var Pledgeracine = racine.Pledge({}, {
 fromBlock: FBLOCK,
 toBlock: 'LBLOCK'
 });
 Pledgeracine.watch(function(error, result) {
-console.log(JSON.stringify(result))
+console.log(JSON.stringify(add_Currency(result,'Racine')))
+});
+
+
+addr_tissou = "0xf170c6161e973660140db5357d2acdf598e3b1df"
+var tissou = eth.contract(desc).at(addr_tissou)
+var Transfertissou = tissou.Transfer({}, {
+fromBlock: FBLOCK,
+toBlock: 'LBLOCK'
+});
+Transfertissou.watch(function(error, result) {
+console.log(JSON.stringify(add_Currency(result,'Tissou')))
+});
+var TransferCredittissou = tissou.TransferCredit({}, {
+fromBlock: FBLOCK,
+toBlock: 'LBLOCK'
+});
+TransferCredittissou.watch(function(error, result) {
+console.log(JSON.stringify(add_Currency(result,'Tissou')))
+});
+var Pledgetissou = tissou.Pledge({}, {
+fromBlock: FBLOCK,
+toBlock: 'LBLOCK'
+});
+Pledgetissou.watch(function(error, result) {
+console.log(JSON.stringify(add_Currency(result,'Tissou')))
 });
 
