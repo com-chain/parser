@@ -1344,3 +1344,30 @@ console.log(JSON.stringify(add_Currency(result,'PTR_test')))
 });
 
 
+addr_ssa_dieulefit = "0x7a29b031C96F1d368A1f2529E421E95A6306aADb"
+var ssa_dieuelfit = eth.contract(desc).at(addr_ssa_dieulefit)
+var Transferssa_dieuelfit = ssa_dieuelfit.Transfer({}, {
+fromBlock: FBLOCK,
+toBlock: 'LBLOCK'
+});
+Transferssa_dieuelfit.watch(function(error, result) {
+console.log(JSON.stringify(add_Currency(result,'ssa_dieuelfit')))
+});
+var TransferCreditssa_dieuelfit = ssa_dieuelfit.TransferCredit({}, {
+fromBlock: FBLOCK,
+toBlock: 'LBLOCK'
+});
+TransferCreditssa_dieuelfit.watch(function(error, result) {
+console.log(JSON.stringify(add_Currency(result,'ssa_dieuelfit')))
+});
+var Pledgeptrtest = ssa_dieuelfit.Pledge({}, {
+fromBlock: FBLOCK,
+toBlock: 'LBLOCK'
+});
+Pledgeptrtest.watch(function(error, result) {
+console.log(JSON.stringify(add_Currency(result,'ssa_dieuelfit')))
+});
+
+
+
+
