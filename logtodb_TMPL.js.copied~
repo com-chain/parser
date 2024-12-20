@@ -1317,30 +1317,3 @@ Pledgetissou.watch(function(error, result) {
 console.log(JSON.stringify(add_Currency(result,'Tissou')))
 });
 
-
-
-addr_ptr_test = "0x1cF0Ca53c5E8EA0b0B2A358154B0773225Eaf563"
-var ptr_test = eth.contract(desc).at(addr_ptr_test)
-var Transferptr_test = ptr_test.Transfer({}, {
-fromBlock: FBLOCK,
-toBlock: 'LBLOCK'
-});
-Transferptr_test.watch(function(error, result) {
-console.log(JSON.stringify(add_Currency(result,'PTR_test')))
-});
-var TransferCreditptr_test = ptr_test.TransferCredit({}, {
-fromBlock: FBLOCK,
-toBlock: 'LBLOCK'
-});
-TransferCreditptr_test.watch(function(error, result) {
-console.log(JSON.stringify(add_Currency(result,'PTR_test')))
-});
-var Pledgeptrtest = ptr_test.Pledge({}, {
-fromBlock: FBLOCK,
-toBlock: 'LBLOCK'
-});
-Pledgeptrtest.watch(function(error, result) {
-console.log(JSON.stringify(add_Currency(result,'PTR_test')))
-});
-
-
