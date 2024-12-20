@@ -1326,21 +1326,21 @@ fromBlock: FBLOCK,
 toBlock: 'LBLOCK'
 });
 Transferptr_test.watch(function(error, result) {
-console.log(JSON.stringify(add_Currency(result,'PTR_test')))
+console.log(JSON.stringify(add_Currency(result,'Test_PTR')))
 });
 var TransferCreditptr_test = ptr_test.TransferCredit({}, {
 fromBlock: FBLOCK,
 toBlock: 'LBLOCK'
 });
 TransferCreditptr_test.watch(function(error, result) {
-console.log(JSON.stringify(add_Currency(result,'PTR_test')))
+console.log(JSON.stringify(add_Currency(result,'Test_PTR')))
 });
 var Pledgeptrtest = ptr_test.Pledge({}, {
 fromBlock: FBLOCK,
 toBlock: 'LBLOCK'
 });
 Pledgeptrtest.watch(function(error, result) {
-console.log(JSON.stringify(add_Currency(result,'PTR_test')))
+console.log(JSON.stringify(add_Currency(result,'Test_PTR')))
 });
 
 
@@ -1351,21 +1351,21 @@ fromBlock: FBLOCK,
 toBlock: 'LBLOCK'
 });
 Transferssa_dieuelfit.watch(function(error, result) {
-console.log(JSON.stringify(add_Currency(result,'ssa_dieuelfit')))
+console.log(JSON.stringify(add_Currency(result,'ssa_dieulefit')))
 });
 var TransferCreditssa_dieuelfit = ssa_dieuelfit.TransferCredit({}, {
 fromBlock: FBLOCK,
 toBlock: 'LBLOCK'
 });
 TransferCreditssa_dieuelfit.watch(function(error, result) {
-console.log(JSON.stringify(add_Currency(result,'ssa_dieuelfit')))
+console.log(JSON.stringify(add_Currency(result,'ssa_dieulefit')))
 });
-var Pledgeptrtest = ssa_dieuelfit.Pledge({}, {
+var Pledgessa_dieuelfit = ssa_dieuelfit.Pledge({}, {
 fromBlock: FBLOCK,
 toBlock: 'LBLOCK'
 });
-Pledgeptrtest.watch(function(error, result) {
-console.log(JSON.stringify(add_Currency(result,'ssa_dieuelfit')))
+Pledgessa_dieuelfit.watch(function(error, result) {
+console.log(JSON.stringify(add_Currency(result,'ssa_dieulefit')))
 });
 
 
