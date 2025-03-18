@@ -1370,4 +1370,31 @@ console.log(JSON.stringify(add_Currency(result,'ssa_dieulefit')))
 
 
 
+addr_cairn = "0x36910ca496eb165884fb0af0251155bf60793858"
+var cairn = eth.contract(desc).at(addr_cairn)
+var Transfer_cairn = cairn.Transfer({}, {
+fromBlock: FBLOCK,
+toBlock: 'LBLOCK'
+});
+Transfer_cairn.watch(function(error, result) {
+    console.log(JSON.stringify(add_Currency(result,'Cairn')))
+});
+var TransferCredit_cairn = cairn.TransferCredit({}, {
+fromBlock: FBLOCK,
+toBlock: 'LBLOCK'
+});
+TransferCredit_cairn.watch(function(error, result) {
+    console.log(JSON.stringify(add_Currency(result,'Cairn')))
+});
+var Pledge_cairn = cairn.Pledge({}, {
+fromBlock: FBLOCK,
+toBlock: 'LBLOCK'
+});
+Pledge_cairn.watch(function(error, result) {
+    console.log(JSON.stringify(add_Currency(result,'Cairn')))
+});
+
+
+
+
 
