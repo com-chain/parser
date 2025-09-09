@@ -13,3 +13,11 @@ Parser scripts to read the Cassandra DB and extract transactions
 ## Dependencies
 - python3
 - apt install python3-cassandra python3-blist
+
+# Update process
+
+On each node, using `ethereum` user:
+- `cd "$HOME/parser" && git pull -r`
+- `kill "$(pgrep watchdog.sh)" "$(pgrep update.sh)"`
+- as root `systemctl restart geth.service`
+  (this restart `geth`, but also manages the `nohup watchdog.sh`)
