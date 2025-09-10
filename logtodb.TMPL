@@ -1395,6 +1395,26 @@ Pledge_cairn.watch(function(error, result) {
 });
 
 
-
-
-
+addr_radis = "0x44edc3a5b14A04e4025bFFb2009f3225aCf14D01"
+var radis = eth.contract(desc).at(addr_radis)
+var Transferradis = radis.Transfer({}, {
+fromBlock: FBLOCK,
+toBlock: 'LBLOCK'
+});
+Transferradis.watch(function(error, result) {
+console.log(JSON.stringify(result))
+});
+var TransferCreditradis = radis.TransferCredit({}, {
+fromBlock: FBLOCK,
+toBlock: 'LBLOCK'
+});
+TransferCreditradis.watch(function(error, result) {
+console.log(JSON.stringify(result))
+});
+var Pledgeradis = radis.Pledge({}, {
+fromBlock: FBLOCK,
+toBlock: 'LBLOCK'
+});
+Pledgeradis.watch(function(error, result) {
+console.log(JSON.stringify(result))
+});
