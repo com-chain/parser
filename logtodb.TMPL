@@ -1418,4 +1418,30 @@ toBlock: 'LBLOCK'
 Pledgeradis.watch(function(error, result) {
 console.log(JSON.stringify(result))
 });
+
+
+addr_kulturkoin = "0x887195585A87eB93Dd2a6A045f8D98544f160c91"
+var kulturkoin = eth.contract(desc).at(addr_kulturkoin)
+var Transferkulturkoin = kulturkoin.Transfer({}, {
+fromBlock: FBLOCK,
+toBlock: 'LBLOCK'
+});
+Transferkulturkoin.watch(function(error, result) {
+console.log(JSON.stringify(result))
+});
+var TransferCreditkulturkoin = kulturkoin.TransferCredit({}, {
+fromBlock: FBLOCK,
+toBlock: 'LBLOCK'
+});
+TransferCreditkulturkoin.watch(function(error, result) {
+console.log(JSON.stringify(result))
+});
+var Pledgekulturkoin = kulturkoin.Pledge({}, {
+fromBlock: FBLOCK,
+toBlock: 'LBLOCK'
+});
+Pledgekulturkoin.watch(function(error, result) {
+console.log(JSON.stringify(result))
+});
+
 true;
