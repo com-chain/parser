@@ -1402,21 +1402,21 @@ fromBlock: FBLOCK,
 toBlock: 'LBLOCK'
 });
 Transferradis.watch(function(error, result) {
-console.log(JSON.stringify(result))
+    console.log(JSON.stringify(add_Currency(result,'Radis')))
 });
 var TransferCreditradis = radis.TransferCredit({}, {
 fromBlock: FBLOCK,
 toBlock: 'LBLOCK'
 });
 TransferCreditradis.watch(function(error, result) {
-console.log(JSON.stringify(result))
+     console.log(JSON.stringify(add_Currency(result,'Radis')))
 });
 var Pledgeradis = radis.Pledge({}, {
 fromBlock: FBLOCK,
 toBlock: 'LBLOCK'
 });
 Pledgeradis.watch(function(error, result) {
-console.log(JSON.stringify(result))
+     console.log(JSON.stringify(add_Currency(result,'Radis')))
 });
 
 
@@ -1427,21 +1427,21 @@ fromBlock: FBLOCK,
 toBlock: 'LBLOCK'
 });
 Transferkulturkoin.watch(function(error, result) {
-console.log(JSON.stringify(result))
+     console.log(JSON.stringify(add_Currency(result,'kulturkoin')))
 });
 var TransferCreditkulturkoin = kulturkoin.TransferCredit({}, {
 fromBlock: FBLOCK,
 toBlock: 'LBLOCK'
 });
 TransferCreditkulturkoin.watch(function(error, result) {
-console.log(JSON.stringify(result))
+    console.log(JSON.stringify(add_Currency(result,'kulturkoin')))
 });
 var Pledgekulturkoin = kulturkoin.Pledge({}, {
 fromBlock: FBLOCK,
 toBlock: 'LBLOCK'
 });
 Pledgekulturkoin.watch(function(error, result) {
-console.log(JSON.stringify(result))
+    console.log(JSON.stringify(add_Currency(result,'kulturkoin')))
 });
 
 true;
