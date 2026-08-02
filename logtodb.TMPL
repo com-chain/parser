@@ -1059,7 +1059,7 @@ desc = [{
     "type": "event"
 }]
 
-// const valid_currencies = ['Agnel','COEUR','Gemme','LaPive','Leman-EU','Lemanopolis','Lokacoin','Monnaie-Leman','Racine','Tissou'];
+// const valid_currencies = ['Agnel', 'COEUR', 'Gemme', 'LaPive', 'Leman-EU', 'Lemanopolis', 'Lokacoin', 'Monnaie-Leman', 'Racine', 'Tissou', 'Test_PTR', 'ssa_dieulefit', 'Cairn', 'Radis', 'kulturkoin', 'secu_assiette', 'sesam'];
 
 var add_Currency = function(data, currency) {
     data['currency']=currency;
@@ -1442,6 +1442,58 @@ toBlock: 'LBLOCK'
 });
 Pledgekulturkoin.watch(function(error, result) {
     console.log(JSON.stringify(add_Currency(result,'kulturkoin')))
+});
+
+
+
+addr_secu_assiette = "0x48F151C113545619D4c7D16dc4485A0989021106"
+var secu_assiette = eth.contract(desc).at(addr_secu_assiette)
+var Transfersecu_assiette = secu_assiette.Transfer({}, {
+fromBlock: FBLOCK,
+toBlock: 'LBLOCK'
+});
+Transfersecu_assiette.watch(function(error, result) {
+     console.log(JSON.stringify(add_Currency(result,'secu_assiette')))
+});
+var TransferCreditsecu_assiette = secu_assiette.TransferCredit({}, {
+fromBlock: FBLOCK,
+toBlock: 'LBLOCK'
+});
+TransferCreditsecu_assiette.watch(function(error, result) {
+    console.log(JSON.stringify(add_Currency(result,'secu_assiette')))
+});
+var Pledgesecu_assiette = secu_assiette.Pledge({}, {
+fromBlock: FBLOCK,
+toBlock: 'LBLOCK'
+});
+Pledgesecu_assiette.watch(function(error, result) {
+    console.log(JSON.stringify(add_Currency(result,'secu_assiette')))
+});
+
+
+
+addr_sesam = "0xd9b8919967d22Fa372eb9e9873642dd4C3597A2A"
+var sesam = eth.contract(desc).at(addr_sesam)
+var Transfersesam = sesam.Transfer({}, {
+fromBlock: FBLOCK,
+toBlock: 'LBLOCK'
+});
+Transfersesam.watch(function(error, result) {
+     console.log(JSON.stringify(add_Currency(result,'sesam')))
+});
+var TransferCreditsesam = sesam.TransferCredit({}, {
+fromBlock: FBLOCK,
+toBlock: 'LBLOCK'
+});
+TransferCreditsesam.watch(function(error, result) {
+    console.log(JSON.stringify(add_Currency(result,'sesam')))
+});
+var Pledgesesam = sesam.Pledge({}, {
+fromBlock: FBLOCK,
+toBlock: 'LBLOCK'
+});
+Pledgesesam.watch(function(error, result) {
+    console.log(JSON.stringify(add_Currency(result,'sesam')))
 });
 
 true;
