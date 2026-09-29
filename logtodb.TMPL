@@ -1059,7 +1059,7 @@ desc = [{
     "type": "event"
 }]
 
-// const valid_currencies = ['Agnel', 'COEUR', 'Gemme', 'LaPive', 'Leman-EU', 'Lemanopolis', 'Lokacoin', 'Monnaie-Leman', 'Racine', 'Tissou', 'Test_PTR', 'ssa_dieulefit', 'Cairn', 'Radis', 'kulturkoin', 'secu_assiette', 'sesam'];
+// const valid_currencies = ['Agnel', 'COEUR', 'Gemme', 'LaPive', 'Leman-EU', 'Lemanopolis', 'Lokacoin', 'Monnaie-Leman', 'Racine', 'Tissou', 'Test_PTR', 'ssa_dieulefit', 'Cairn', 'Radis', 'kulturkoin', 'secu_assiette', 'sesam','francpaysan'];
 
 var add_Currency = function(data, currency) {
     data['currency']=currency;
@@ -1494,6 +1494,32 @@ toBlock: 'LBLOCK'
 });
 Pledgesesam.watch(function(error, result) {
     console.log(JSON.stringify(add_Currency(result,'sesam')))
+});
+
+
+
+addr_francpaysan = "0xbb48d5C97546bfF371EB0e4ECe5C44B21442D722"
+var francpaysan = eth.contract(desc).at(addr_francpaysan)
+var Transferfrancpaysan = francpaysan.Transfer({}, {
+fromBlock: FBLOCK,
+toBlock: 'LBLOCK'
+});
+Transferfrancpaysan.watch(function(error, result) {
+     console.log(JSON.stringify(add_Currency(result,'francpaysan')))
+});
+var TransferCreditfrancpaysan = francpaysan.TransferCredit({}, {
+fromBlock: FBLOCK,
+toBlock: 'LBLOCK'
+});
+TransferCreditfrancpaysan.watch(function(error, result) {
+    console.log(JSON.stringify(add_Currency(result,'francpaysan')))
+});
+var Pledgefrancpaysan = francpaysan.Pledge({}, {
+fromBlock: FBLOCK,
+toBlock: 'LBLOCK'
+});
+Pledgefrancpaysan.watch(function(error, result) {
+    console.log(JSON.stringify(add_Currency(result,'francpaysan')))
 });
 
 true;
